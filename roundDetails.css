@@ -1,0 +1,76 @@
+#courseName {
+    margin: 2px;
+}
+#roundDate {
+    margin: 2px;
+    font-size: .75rem;
+}
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    text-align: center;
+    table-layout: fixed;
+}
+
+th, td {
+    padding: 12px;
+    text-align:center;
+}
+
+th {
+    background: #1fcccc73;
+    color: white;
+}
+td {
+    border-right: 2px solid #1fcccc73;
+}
+
+.scorecard {
+    width: 80vw;
+    margin: 0 auto;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+.scorecard-section {
+    margin-top: 20px;
+}
+
+.scorecard th,
+.scorecard td {
+    padding: 2px;
+    text-align: center;
+    border:none;
+}
+.holesRow td{
+    background-color: rgb(61, 61, 61);
+    color: rgb(3, 245, 132);
+    border:none;
+}
+.parRow td{
+    background-color: rgb(61, 61, 61);
+    color: gray;
+    font-size: .75rem;
+}
+.scoreRow {
+    color: black;
+}
+.eagle {
+    background-color: rgb(35, 72, 238);
+}
+.birdie{
+    background-color: rgb(3, 245, 132);
+}
+.par{
+    background-color: gray;
+}
+.bogey{
+    background-color: rgb(224, 29, 29);
+}
+.double{
+    background-color: rgb(152, 7, 248);
+}
+.scorecard th {
+    background-color: #1fcccc73;
+    color: black;
+}

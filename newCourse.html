@@ -1,0 +1,45 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DG Courses</title>
+    <link rel='stylesheet' href='styles.css'> 
+    <link rel='stylesheet' href='newCourse.css'>
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>Create Course</h1>
+
+        <input
+            type="text"
+            id="courseName"
+            placeholder="Course Name"
+        />
+        <div id="hole-nav"></div>
+
+        <div class="hole-card" id="holeCard"></div>
+
+        <div class="action-buttons">
+            <button id="deleteHoleBtn">
+                Delete Hole
+            </button>
+
+            <button id="addHoleBtn">
+                Add Hole
+            </button>
+
+        </div>
+
+        <button
+            class="save-btn"
+            id="saveCourseBtn"
+        >
+            Save Course
+        </button>
+
+<script src="https://unpkg.com/dexie/dist/dexie.js"></script>
+<script src="db.js"></script>
+<script src="newCourse.js"></script>
+
+</body>

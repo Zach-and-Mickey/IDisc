@@ -1,0 +1,171 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: "arial black", Arial;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  color: rgb(255, 94, 0);
+  align-items: center;
+  text-align:center;
+  min-height: 100vh;
+  opacity: 0;
+  transition: all 2s ease;
+  height: 100%;
+  background-image: linear-gradient(rgb(26, 25, 25), rgb(26, 25, 25));
+}
+body.fade-in {
+    opacity: 1;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background: rgb(0, 0, 0);
+    height: 50px;
+    border-top: 1px solid rgba(31, 204, 204, 0.451);
+}
+
+.nav-link {
+    flex: 1;
+    text-align: center;
+    color: #1fcccc73;
+    height: 100%;
+    align-content: center;
+    text-decoration: none;
+    background-color: black;
+}
+
+.nav-link.active {
+    color: black;
+    background-color: #1fcccc73;
+}
+
+h1 {
+    position: sticky;
+    top:0;
+    width: 100%;
+    background-color: black;
+    margin-top: 0;
+    padding: 10px;
+    border-bottom: #1fcccc73 solid 2px;
+}
+a {
+    color: rgb(255, 94, 0);
+    text-decoration: none;
+}
+a:hover {
+    color: rgb(184, 23, 11);
+}
+.add-button {
+    color: aqua;
+    text-decoration: underline;
+    background-color: black;
+    padding: 10px;
+    border-radius: 42px;
+    border: 1px solid aqua;
+}
+.add-button:hover {
+    color: aquamarine;
+}
+.hole-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+input {
+    border: none;
+    background-color: rgb(26, 25, 25);
+    color: rgb(53, 112, 240);
+    text-align: center;
+    font-size: 7vw;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+.scoringMech {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+#minusBtn, #plusBtn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin:10px;
+    line-height: 1;
+    padding: 0;
+    background-color: rgb(255, 94, 0);
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+#roundScore {
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 1.5rem;
+    display: inline-block;
+    min-width: 40px;
+    text-align: center;
+}
+
+#roundLink {
+    color: aqua;
+    background-color: black;
+    padding: 10px;
+    border-radius: 25px;
+    border: 1px solid aqua;
+}
+
+.score-positive {
+    background-color: rgb(175, 58, 58);
+}
+
+.score-negative {
+    background-color: rgb(69, 209, 88);
+}
+
+.score-even {
+    background-color: rgb(53, 112, 240);
+}
+.stat {
+    display: flex;
+    flex-direction: row;
+    margin: 12px;
+    padding: 5px;
+}
+.label {
+    margin-right: 10px;
+}
+.value {
+    color: aqua;
+}
+.roundLabel {
+    text-decoration: underline;
+    margin-right: 10px;
+}
+#content {
+    background-color: black;
+    border: #1fcccc73 solid 1px;
+    border-radius: 20px;
+    width: 50vw;
+    margin-bottom: 12px;
+}

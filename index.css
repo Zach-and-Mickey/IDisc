@@ -1,0 +1,50 @@
+.idisc {
+    height: 60px;
+}
+#recentRounds {
+    padding: 10px;
+    border-radius: 20px;
+    width: 80vw;
+}
+.round-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    border: 2px solid #1fcccc73;
+    padding: 16px;
+    border-radius: 20px;
+    background: rgb(0, 0, 0);
+    margin-bottom: 16px;
+}
+.table-wrapper {
+    border: 2px solid #1fcccc73;
+    border-radius: 20px;
+    overflow: hidden;
+}
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    text-align: center;
+    table-layout: fixed;
+}
+
+th, td {
+    padding: 12px;
+    text-align:center;
+}
+
+th {
+    background: #1fcccc73;
+    color: white;
+}
+th:last-child {
+    border: none;
+}
+td {
+    border-right: 2px solid #1fcccc73;
+}
+
+td:last-child {
+    border: none;
+}

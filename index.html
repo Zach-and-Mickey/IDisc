@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DG Score Tracking</title>
+    <link rel='stylesheet' href='styles.css'> 
+    <link rel='stylesheet' href="index.css">
+</head>
+<body>
+    <h1><img class="idisc" src="IDisc Logo.svg"></h1>
+    <div id='recentRounds'></div>
+    <a id="roundLink" href="courses.html">Start New Round</a>
+    <footer>
+        <a href="index.html" class="nav-link active" id="homeTab">Home</a>
+        <a href="courses.html" class="nav-link" id="coursesTab">Courses</a>
+        <a href="history.html" class="nav-link" id="statsTab">Stats</a>
+    </footer>
+    <script src="https://unpkg.com/dexie/dist/dexie.js"></script>
+    <script src="db.js"></script>
+    <script src="index.js"></script>
+</body>
