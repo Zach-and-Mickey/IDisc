@@ -32,6 +32,10 @@ if (savedRound) {
     roundData = {
         id: crypto.randomUUID(),
         courseId: courseId,
+        courseSnapshot: {
+            name: course.name,
+            holes: course.holes
+        },
         date: new Date().toISOString(),
         scores: [],
         updatedAt: Date.now()
