@@ -14,6 +14,43 @@ import { db }
 from "./db.js";
 console.log("dbCloud =", dbCloud);
 console.log("dbCloud type =", typeof dbCloud);
+export async function pullCourses(user) {
+
+    const snap = await getDocs(
+        collection(dbCloud, "users", user.uid, "courses")
+    );
+
+    for (const docSnap of snap.docs) {
+
+        const course = docSnap.data();
+
+        const local = await db.courses.get(course.id);
+
+        if (!local) {
+            await db.courses.put(course);
+            console.log("Pulled course:", course.id);
+        }
+    }
+}
+export async function pushCourses(user) {
+
+    const localCourses = await db.courses.toArray();
+
+    for (const course of localCourses) {
+
+        const ref = doc(
+            dbCloud,
+            "users",
+            user.uid,
+            "courses",
+            course.id
+        );
+
+        await setDoc(ref, course);
+
+        console.log("Pushed course:", course.id);
+    }
+}
 
 export async function pullRounds(user) {
 
@@ -84,9 +121,16 @@ export async function syncAll(user) {
 
     if (!user) return;
 
-    console.log("Starting sync...");
+    console.log("Sync starting...");
 
+    // 1. courses FIRST
+    await pullCourses(user);
+
+    // 2. then rounds (depends on courses)
     await pullRounds(user);
+
+    // 3. push local changes
+    await pushCourses(user);
     await pushRounds(user);
 
     console.log("Sync complete");
