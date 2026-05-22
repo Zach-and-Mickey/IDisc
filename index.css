@@ -1,6 +1,73 @@
 .idisc {
     height: 60px;
 }
+.profile-wrapper {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.topBar {
+    position: relative;
+    text-align: center;
+}
+#user-login {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+    align-content: center;
+    text-align:center;
+    align-items: center;
+    right: 20px;
+    top: 20px;
+}
+
+.profileMenu {
+    position: absolute;
+    top: 45px;
+    right: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    background: black;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+    padding: 6px;
+}
+button {
+    background: black;
+    border: 1px solid aqua;
+    color: aqua;
+    padding: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+.profile-pic {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+#loginBtn {
+    background-color: black;
+    border: 1px solid aqua;
+    border-radius: 20px;
+    padding: 5px;
+    color: aqua;
+}
+#profilePic {
+
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
 #recentRounds {
     padding: 10px;
     border-radius: 20px;
@@ -20,6 +87,24 @@
     border: 2px solid #1fcccc73;
     border-radius: 20px;
     overflow: hidden;
+}
+#activeRoundContainer {
+    padding: 10px;
+    border-radius: 20px;
+    width: 80vw;
+}
+.active-round h2{
+    color: limegreen;
+}
+.round-card.active-round {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    border: 3px solid rgb(3, 245, 132);
+    padding: 16px;
+    border-radius: 20px;
+    background: rgb(49, 48, 48);
+    margin-bottom: 16px;
 }
 table {
     width: 100%;

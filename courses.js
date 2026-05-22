@@ -1,6 +1,7 @@
 window.addEventListener("load", () => {
     document.body.classList.add("fade-in");
 });
+import { db } from "./db.js";
 async function renderCourses() {
 
 const courses =

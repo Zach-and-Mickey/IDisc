@@ -1,6 +1,100 @@
 window.addEventListener("load", () => {
     document.body.classList.add("fade-in");
 });
+const profilePic = document.getElementById("profilePic");
+const profileMenu = document.getElementById("profileMenu");
+
+profilePic.addEventListener("click", (e) => {
+    e.stopPropagation();
+    profileMenu.classList.toggle("hidden");
+    
+});
+import { db } from "./db.js";
+import { login, logout } from "./auth.js";
+
+document.getElementById("loginBtn")
+    .addEventListener("click", async () => {
+        await login();
+        profileMenu.classList.add("hidden")
+    })
+
+document.getElementById("logoutBtn")
+    .addEventListener("click", async () => {
+        await logout();
+        profileMenu.classList.add("hidden");
+    });
+
+document.getElementById("switchBtn")
+    .addEventListener("click", async () => {
+
+        // forces Google popup again
+        await login();
+
+        profileMenu.classList.add("hidden");
+    });
+    document.addEventListener("click", (e) => {
+
+    if (!profilePic.contains(e.target) &&
+        !profileMenu.contains(e.target)) {
+        profileMenu.classList.add("hidden");
+    }
+});
+async function loadActiveRound() {
+
+    const activeRounds =
+        await db.activeRound.toArray();
+
+    if (activeRounds.length === 0) return;
+
+    const round = activeRounds[0];
+
+    const course =
+        await db.courses.get(round.courseId);
+
+    const stats =
+        calculateRoundStats(round);
+
+    const container =
+        document.getElementById("activeRoundContainer");
+
+    container.innerHTML = `
+
+        <a
+            class="round-card active-round"
+            href="round.html?id=${round.courseId}"
+        >
+
+            <h2>Active Round</h2>
+
+            <h3>${course.name}</h3>
+
+            <div class="active-table-wrapper">
+
+                <table class="recent-round-table">
+
+                    <thead>
+                        <tr>
+                            <th>Par</th>
+                            <th>Strokes</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>${stats.totalPar}</td>
+                            <td>${stats.strokes}</td>
+                            <td>${formatScore(stats.total)}</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </a>
+    `;
+}
 async function loadRecentRounds() {
 
     const rounds = await db.rounds
@@ -58,8 +152,7 @@ async function loadRecentRounds() {
     }
 
     container.innerHTML = html;
-
-
+}
     function calculateRoundStats(round) {
 
         let total = 0;
@@ -91,6 +184,5 @@ async function loadRecentRounds() {
 
         return "E";
     }
-}
-
+loadActiveRound();
 loadRecentRounds();

@@ -1,6 +1,7 @@
 window.addEventListener("load", () => {
     document.body.classList.add("fade-in");
 });
+import { db } from "./db.js";
 async function roundPage() {
 
     const params =
@@ -17,12 +18,25 @@ async function roundPage() {
     // -----------------------------
     // ROUND STATE (NEW)
     // -----------------------------
-    let roundData = {
+let roundData;
+
+const savedRound =
+    await db.activeRound.get(courseId);
+
+if (savedRound) {
+
+    roundData = savedRound;
+
+} else {
+
+    roundData = {
         id: crypto.randomUUID(),
         courseId: courseId,
         date: new Date().toISOString(),
-        scores: []
+        scores: [],
+        updatedAt: Date.now()
     };
+}
 
     // -----------------------------
     // RENDER HOLE
@@ -47,7 +61,19 @@ function renderHole() {
     document.getElementById("scoreInput")
         .value = existing ? existing.strokes : "";
 }
+    // -----------------------------
+    // SAVE ACTIVE ROUND
+    // -----------------------------
 
+async function saveActiveRound() {
+
+    roundData.updatedAt = Date.now();
+
+    await db.activeRound.put({
+        ...roundData,
+        id: courseId
+    });
+}
     // -----------------------------
     // SAVE CURRENT HOLE SCORE
     // -----------------------------
@@ -80,7 +106,8 @@ function saveHoleScore() {
     } else {
         roundData.scores.push(entry);
     }
-
+    roundData.updatedAt = Date.now();
+    saveActiveRound();
     renderScore();
     renderScorecard();
 }
@@ -128,8 +155,9 @@ function saveHoleScore() {
 
         // make sure last hole is saved
         saveHoleScore();
-
-        await db.rounds.add(roundData);
+        roundData.updatedAt = Date.now();
+        await db.rounds.put(roundData);
+        await db.activeRound.delete(courseId);
 
         alert("Round saved!");
 

@@ -1,6 +1,7 @@
 window.addEventListener("load", () => {
     document.body.classList.add("fade-in");
 });
+import { db } from "./db.js"
 async function loadRoundDetails() {
 
     const params = new URLSearchParams(window.location.search);
@@ -79,10 +80,14 @@ function calculateRoundStats(round) {
         .innerHTML = row;
 }
 function renderScorecard(round) {
+        const sortedScores = [...round.scores].sort(
+        (a, b) => a.hole - b.hole
+    );
 
-    const front9 = round.scores.slice(0, 9);
 
-    const back9 = round.scores.slice(9, 18);
+    const front9 = sortedScores.slice(0, 9);
+
+    const back9 = sortedScores.slice(9, 18);
 
     const frontTable =
         createScorecardTable(front9);

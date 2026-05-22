@@ -1,6 +1,7 @@
 window.addEventListener("load", () => {
     document.body.classList.add("fade-in");
 });
+import { db } from "./db.js";
 async function initCoursePage() {
 
     const courseId = getCourseIdFromURL();
@@ -21,13 +22,26 @@ function getCourseIdFromURL() {
 
 // ---------- LINK ----------
 
-function setRoundLink(courseId) {
+async function setRoundLink(courseId) {
 
-    const link = document.getElementById("roundLink");
+    const link =
+        document.getElementById("roundLink");
 
-    link.href = `round.html?id=${courseId}`;
+    const activeRound =
+        await db.activeRound.get(courseId);
+
+    link.href =
+        `round.html?id=${courseId}`;
+
+    if (activeRound) {
+
+        link.textContent = "Resume Round";
+
+    } else {
+
+        link.textContent = "Start Round";
+    }
 }
-
 
 // ---------- STATS ----------
 

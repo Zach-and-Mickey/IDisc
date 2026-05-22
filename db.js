@@ -1,6 +1,7 @@
-const db = new Dexie("DiscGolfDB");
+export const db = new Dexie("DiscGolfDB");
 
-db.version(2).stores({
+db.version(3).stores({
     courses: "id, name",
-    rounds: "id, date, courseId"
+    rounds: "id, date, courseId",
+    activeRound: "id, date, courseId"
 });

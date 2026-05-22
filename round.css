@@ -16,10 +16,13 @@
 input {
     border: 1px solid rgb(0, 255, 221);
     border-radius: 50%;
-    width: 20vw;
-    height:20vw;
+    width: 30vw;
+    height:30vw;
     background: black;
     color: aqua;
+}
+#scoreInput {
+    font-size: 20vw;
 }
 .hole-nav {
     display: flex;

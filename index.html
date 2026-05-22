@@ -2,13 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no"">
     <title>DG Score Tracking</title>
     <link rel='stylesheet' href='styles.css'> 
     <link rel='stylesheet' href="index.css">
 </head>
 <body>
-    <h1><img class="idisc" src="IDisc Logo.svg"></h1>
+    <h1 class="topBar"><img class="idisc" src="IDisc Logo.svg">
+<div id="profile-wrapper" class="profile-wrapper">
+    <button id="loginBtn">Sign In</button>
+    <img id="profilePic" class="profile-pic" />
+
+    <div id="profileMenu" class="profileMenu hidden">
+        <button id="switchBtn">Switch Account</button>
+        <button id="logoutBtn">Sign Out</button>
+    </div>
+
+</div>
+    </h1>
+    <div id="activeRoundContainer"></div>
     <div id='recentRounds'></div>
     <a id="roundLink" href="courses.html">Start New Round</a>
     <footer>
@@ -16,7 +28,7 @@
         <a href="courses.html" class="nav-link" id="coursesTab">Courses</a>
         <a href="history.html" class="nav-link" id="statsTab">Stats</a>
     </footer>
+    <script type="module" src="app.js"></script>
     <script src="https://unpkg.com/dexie/dist/dexie.js"></script>
-    <script src="db.js"></script>
-    <script src="index.js"></script>
+    <script type="module" src="index.js"></script>
 </body>

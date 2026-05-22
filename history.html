@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no"">
     <title>DG Stats</title>
     <link rel='stylesheet' href='styles.css'>
     <link rel='stylesheet' href='history.css'> 
@@ -37,6 +37,5 @@
         <a href="history.html" class="nav-link active" id="statsTab">Stats</a>
     </footer>
     <script src="https://unpkg.com/dexie/dist/dexie.js"></script>
-    <script src="db.js"></script>
-    <script src="history.js"></script>
+    <script type="module" src="history.js"></script>
 </body>
