@@ -1,5 +1,5 @@
-html,
-body {
+html
+{
   margin: 0;
   padding: 0;
   width: 100%;
@@ -12,10 +12,12 @@ body {
   align-items: center;
   text-align:center;
   min-height: 100vh;
+  padding-bottom: 50px;
   opacity: 0;
+  margin-top: 0;
   transition: all 2s ease;
-  height: 100%;
   background-image: linear-gradient(rgb(26, 25, 25), rgb(26, 25, 25));
+  touch-action: manipulation;
 }
 body.fade-in {
     opacity: 1;
@@ -133,6 +135,7 @@ input[type="number"] {
     padding: 10px;
     border-radius: 25px;
     border: 1px solid aqua;
+    margin-bottom: 50px;
 }
 
 .score-positive {

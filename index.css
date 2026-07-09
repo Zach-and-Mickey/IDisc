@@ -1,3 +1,4 @@
+
 .idisc {
     height: 60px;
 }
@@ -94,7 +95,7 @@ button {
     width: 80vw;
 }
 .active-round h2{
-    color: limegreen;
+    color: rgb(3,245,132);
 }
 .round-card.active-round {
     display: block;
