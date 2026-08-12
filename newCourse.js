@@ -1,6 +1,20 @@
  window.addEventListener("load", () => {
     document.body.classList.add("fade-in");
 });
+import {
+    collection,
+    getDoc,
+    getDocs,
+    doc,
+    setDoc
+}
+from "https://www.gstatic.com/firebasejs/12.13.0/firebase-firestore.js";
+
+import { dbCloud, auth }
+from "./firebase.js";
+
+import { db }
+from "./db.js";
  let currentHoleIndex = 0;
 
         let holes = [
